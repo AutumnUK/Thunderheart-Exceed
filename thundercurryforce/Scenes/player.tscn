@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdmj4qyxnwa6m"]
+
+[ext_resource type="Script" path="res://Scripts/player.gd" id="2_8ylwl"]
+[ext_resource type="Texture2D" uid="uid://g50tjlpggyee" path="res://Images/PlayerN.png" id="2_kq78t"]
+[ext_resource type="AudioStream" uid="uid://c33joyskdeesb" path="res://Sounds/laser4.wav" id="3_jnktm"]
+[ext_resource type="AudioStream" uid="uid://hca0iyto0im1" path="res://Sounds/boom5.wav" id="4_8odyi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qiicr"]
+size = Vector2(16, 11)
+
+[node name="Player" type="Area2D"]
+z_index = 10
+z_as_relative = false
+position = Vector2(0, -5.96046e-08)
+script = ExtResource("2_8ylwl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -2.5)
+shape = SubResource("RectangleShape2D_qiicr")
+
+[node name="PlayerN" type="Sprite2D" parent="."]
+position = Vector2(0, -2)
+texture = ExtResource("2_kq78t")
+
+[node name="ShootingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_jnktm")
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_8odyi")
+bus = &"Effects"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

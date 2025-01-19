@@ -1,0 +1,82 @@
+[gd_scene load_steps=4 format=3 uid="uid://usvua5t82i6t"]
+
+[ext_resource type="Script" path="res://Scripts/options_menu.gd" id="1_sh5au"]
+[ext_resource type="Texture2D" uid="uid://cttq6miab6k2x" path="res://Images/Titlebackground.png" id="2_ik35p"]
+[ext_resource type="FontFile" uid="uid://duksq34xfyd7j" path="res://Misc/Orbitron-Regular.ttf" id="4_m465k"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_sh5au")
+
+[node name="Parallax2D2" type="Parallax2D" parent="."]
+repeat_size = Vector2(320, 240)
+autoscroll = Vector2(8, -12)
+repeat_times = 3
+
+[node name="Titlebackground" type="Sprite2D" parent="Parallax2D2"]
+texture = ExtResource("2_ik35p")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 320.0
+offset_bottom = 239.0
+color = Color(0, 0, 0, 0.478431)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_right = 320.0
+offset_bottom = 239.0
+color = Color(0, 0, 0, 0.478431)
+
+[node name="Fullscreen" type="RichTextLabel" parent="."]
+layout_direction = 2
+offset_top = 52.0
+offset_right = 320.0
+offset_bottom = 81.0
+theme_override_colors/default_color = Color(0.376471, 0.376471, 0.376471, 1)
+theme_override_fonts/normal_font = ExtResource("4_m465k")
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "[center] FULLSCREEN"
+
+[node name="Sound Volume" type="RichTextLabel" parent="."]
+layout_direction = 2
+offset_top = 92.0
+offset_right = 320.0
+offset_bottom = 121.0
+theme_override_colors/default_color = Color(0.376471, 0.376471, 0.376471, 1)
+theme_override_fonts/normal_font = ExtResource("4_m465k")
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "[center]SOUND VOLUME"
+
+[node name="Music Volume" type="RichTextLabel" parent="."]
+layout_direction = 2
+offset_left = 1.0
+offset_top = 131.0
+offset_right = 321.0
+offset_bottom = 143.0
+theme_override_colors/default_color = Color(0.376471, 0.376471, 0.376471, 1)
+theme_override_fonts/normal_font = ExtResource("4_m465k")
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "[center]MUSIC VOLUME"
+scroll_active = false
+
+[node name="Back" type="RichTextLabel" parent="."]
+clip_contents = false
+layout_direction = 2
+offset_top = 172.0
+offset_right = 320.0
+offset_bottom = 186.0
+size_flags_horizontal = 3
+theme_override_colors/default_color = Color(0.376471, 0.376471, 0.376471, 1)
+theme_override_fonts/normal_font = ExtResource("4_m465k")
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "[center]BACK"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="FadeOut" type="ColorRect" parent="."]
+visible = false
+offset_right = 320.0
+offset_bottom = 240.0
+color = Color(0, 0, 0, 1)
