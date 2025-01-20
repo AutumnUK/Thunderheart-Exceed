@@ -88,23 +88,37 @@ func _process(delta: float) -> void:
 	frame += 1;
 	if frame >=  60 :	second += 1; 	frame  = 0;
 
-	if second ==  3 && frame == 0:	spawnEnemy(330,50)
-	if second ==  4 && frame == 0:	spawnEnemy(330,50)	
-	if second ==  5 && frame == 0:	spawnEnemy(330,50)
-	if second ==  6 && frame == 0:	spawnEnemy(330,50)	
-	if second ==  7 && frame == 0:	spawnEnemy(330,50)		
+	if second ==  4 && frame ==  0:	spawnEnemy(330, 50)
+	if second ==  4 && frame == 30:	spawnEnemy(330, 50)	
+	if second ==  5 && frame ==  0:	spawnEnemy(330, 50)
+	if second ==  5 && frame == 30:	spawnEnemy(330, 50)	
+	if second ==  6 && frame ==  0:	spawnEnemy(330, 50)		
+	if second ==  6 && frame == 30: spawnEnemy(330, 50)
 	
-	if second == 10 && frame == 0:	spawnEnemy(330,190)
-	if second == 11 && frame == 0:	spawnEnemy(330,190)	
-	if second == 12 && frame == 0:	spawnEnemy(330,190)
-	if second == 13 && frame == 0:	spawnEnemy(330,190)	
-	if second == 14 && frame == 0:	spawnEnemy(330,190)	
+	if second ==  8 && frame ==  0:	spawnEnemy(330,190)
+	if second ==  8 && frame == 30:	spawnEnemy(330,190)	
+	if second ==  9 && frame ==  0:	spawnEnemy(330,190)
+	if second ==  9 && frame == 30:	spawnEnemy(330,190)	
+	if second == 10 && frame ==  0:	spawnEnemy(330,190)	
+	if second == 10 && frame == 30: spawnEnemy(330,190)
 	
-	if second == 17 && frame == 0:	spawnEnemy(330,120)
-	if second == 18 && frame == 0:	spawnEnemy(330,120)	
-	if second == 19 && frame == 0:	spawnEnemy(330,120)
-	if second == 20 && frame == 0:	spawnEnemy(330,120)	
-	if second == 21 && frame == 0:	spawnEnemy(330,120)		
+	if second == 12 && frame ==  0: spawnEnemy(330,120)
+	if second == 12 && frame == 30: spawnEnemy(330,120)	
+	if second == 13 && frame ==  0:	spawnEnemy(330,120)
+	if second == 13 && frame ==  0:	spawnEnemy(330,120)	
+	if second == 14 && frame ==  0:	spawnEnemy(330,120)
+	if second == 14 && frame ==  0:	spawnEnemy(330,120)	
+	
+	if second == 16 && frame ==  0:	spawnEnemy(330, 50)
+	if second == 16 && frame == 30:	spawnEnemy(330, 70)	
+	if second == 17 && frame ==  0:	spawnEnemy(330, 90)	
+	if second == 17 && frame == 30:	spawnEnemy(330,110)
+	if second == 18 && frame ==  0:	spawnEnemy(330,130)	
+	if second == 18 && frame == 30:	spawnEnemy(330,150)	
+	if second == 19 && frame ==  0:	spawnEnemy(330,170)	
+	if second == 19 && frame == 30:	spawnEnemy(330,190)	
+	
+
 	
 	if second == 22 && frame == 0: spawnEnemy2(360,120);
 	
@@ -125,13 +139,12 @@ func _process(delta: float) -> void:
 	if second == 43 && frame == 0: spawnEnemy2(360,50);
 	if second == 43 && frame == 0: spawnEnemy2(360,190);	
 	
-	if second == 60 && frame == 0: spawnBoss(360,120); 
+	if second == 55 && frame == 0: spawnBoss(360,120); 
 	
-	if second >= 60: raiseBossHealthBar();
+	if second >= 55: raiseBossHealthBar();
 	
 	score.text = "SCORE: " 	+ str(Global.global_score)
 	timer.text = "TIME: " 	+ str(second)
 	lives.text = "LIVES: " 	+ str(Global.global_lives)
 	
-	if Global.bosshp == 0:
-		get_tree().change_scene_to_file("res://path/to/next_scene.tscn")
+	if Global.bosshp == 0:	get_tree().change_scene_to_file("res://Scenes/monsof_logo.tscn")

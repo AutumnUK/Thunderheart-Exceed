@@ -4,6 +4,7 @@ var hp
 var reload
 var vertical_center;  # Center of the screen height
 var bullet 	= preload("res://Scenes/enemy_bullet_1.tscn")
+var exit = 0
 
 const HP = 30
 const RELOAD = 120
@@ -14,12 +15,17 @@ func _ready() -> void:
 	hp = HP
 	reload = RELOAD
 	
-
-
-
 func _process(delta: float) -> void:
 	reload -= 1;
-	if global_position.x > 240: global_position.x -= 1.5
+	if global_position.x > 300: global_position.x -= 1.5
+	
+	exit += 1;
+	if exit > 240 :
+		global_position.x -= 1.5;
+
+		
+	if global_position.x < -30:
+		queue_free();
 	
 	if reload <= 0:
 		var bullet1 = bullet.instantiate()
