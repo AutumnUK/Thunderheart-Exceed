@@ -2,7 +2,7 @@ extends Node2D
 var frame = 0;
 var second = 0;
 
-var Enemy = preload("res://Scenes/enemy_1.tscn")
+var Enemy = preload("res://Scenes/enemy_apple.tscn")
 var Enemy2 = preload("res://Scenes/enemy_2.tscn")
 var boss = preload("res://Scenes/boss.tscn")
 var pause_menu_scene = preload("res://Scenes/pause_scene.tscn")

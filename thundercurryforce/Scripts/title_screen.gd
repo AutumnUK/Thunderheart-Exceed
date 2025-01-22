@@ -22,8 +22,7 @@ func _process(_delta: float) -> void:
 	if breathing >= 0.8 : breathing_direction = 0
 	if breathing <= 0.5 : breathing_direction = 1
 	
-	if Input.is_action_just_pressed("A"):
-		Global.changeScene(NEXTSCENE)
+	if Input.is_action_just_pressed("A"):	Global.changeScene(NEXTSCENE)
 
 ### FUNCTIONS -- IGNORE ###
 func create_text_menu(label_name : String, x_pos : int, y_pos) -> void:

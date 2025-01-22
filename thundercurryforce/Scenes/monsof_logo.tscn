@@ -6,11 +6,11 @@
 [node name="monsofLogo" type="Node2D"]
 script = ExtResource("1_gntil")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="FadeRect" type="ColorRect" parent="."]
 offset_right = 320.0
 offset_bottom = 240.0
 
-[node name="Monsof" type="Sprite2D" parent="."]
+[node name="monsof_logo_sprite" type="Sprite2D" parent="."]
 position = Vector2(160, 127)
 scale = Vector2(0.350694, 0.350694)
 texture = ExtResource("1_8y6ol")

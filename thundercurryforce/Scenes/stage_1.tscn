@@ -17,12 +17,12 @@ gradient = SubResource("Gradient_j54hf")
 width = 8
 height = 320
 
-[sub_resource type="Gradient" id="Gradient_270wr"]
+[sub_resource type="Gradient" id="Gradient_bkkvq"]
 offsets = PackedFloat32Array(0, 0.259259, 0.561728, 0.944444)
 colors = PackedColorArray(0, 0.188235, 0, 1, 0.280121, 0.150471, 0.131713, 1, 0.717978, 0.400429, 0.363623, 1, 0.819112, 0.431401, 0.176576, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_r5ccq"]
-gradient = SubResource("Gradient_270wr")
+gradient = SubResource("Gradient_bkkvq")
 width = 320
 height = 10
 fill_from = Vector2(0.52381, 1)

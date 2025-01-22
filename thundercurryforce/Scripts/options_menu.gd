@@ -1,22 +1,61 @@
 extends Node2D
 
 var 	selection		: int 			= 1
+var 	sound_bus = AudioServer.get_bus_index("Effects")
+var		sound_volume = 0
+
+var		music_bus = AudioServer.get_bus_index("Music")
+var		music_volume = 0
+
 const 	SELECTED_COLOUR : Color 		= Color (1.0,1.0,1.0,1.0)
 const 	DEFAULT_COLOUR	: Color 		= Color (0.3,0.3,0.3,1.0)
 const	MENU 			: String		= "res://Scenes/main_menu.tscn"
 const	OPTIONS			: String		= "res://Scenes/options_menu.tscn"
 
+func _create():
+	$"Sound Bar".set("min_value", -80.0)
+	$"Sound Bar".set("max_value",   0.0)
+	
+	$"Music Bar".set("min_value", -80.0)
+	$"Music Bar".set("max_value",   0.0)
+
+## All of the following values need to be saved.
+## Don't forget to refactor this code.
+
 func _process(_delta: float) -> void:
-	defaultColours();	# Resets menu items back to grey when not selected.
+	if Input.is_action_just_pressed("B"): Global.changeScene(MENU)
+	
+	defaultColours()
 	match selection :
-		1 :	
+		## Add a resolution selector.
+		1 :	# Fullscreen Selector
 			textColour($"Fullscreen"	,SELECTED_COLOUR)
 			if Input.is_action_just_pressed("A"):
 				if 		DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN	: DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 				elif 	DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED	: DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		
+		## Add a music clip that plays for reference when adjusting volume.	
+		2 :	# Sound Effect Volume Control
+			textColour($"Sound Volume"	,SELECTED_COLOUR)	
+			if Input.is_action_just_pressed("A"): pass
+
+			if Input.is_action_just_pressed("Left"):	sound_volume -= 8.0
+			if Input.is_action_just_pressed("Right"):	sound_volume += 8.0
 			
-		2 :	textColour($"Sound Volume"	,SELECTED_COLOUR);	if Input.is_action_just_pressed("A"): pass
-		3 :	textColour($"Music Volume"	,SELECTED_COLOUR);	if Input.is_action_just_pressed("A"): pass
+			AudioServer.set_bus_volume_db(sound_bus, sound_volume)
+			$"Sound Bar".set("value",AudioServer.get_bus_volume_db(sound_bus))		
+		
+		## Add a sound that plays when you adjust volume.
+		3 :	# Music Voume
+			textColour($"Music Volume",SELECTED_COLOUR);	
+			if Input.is_action_just_pressed("A"): pass
+
+			if Input.is_action_just_pressed("Left"):	music_volume -= 8.0;
+			if Input.is_action_just_pressed("Right"):	music_volume += 8.0
+
+			AudioServer.set_bus_volume_db(music_bus, music_volume)
+			$"Music Bar".set("value",AudioServer.get_bus_volume_db(music_bus))
+
 		4 :	textColour($"Back"			,SELECTED_COLOUR);	if Input.is_action_just_pressed("A"): Global.changeScene(MENU)
 
 	if Input.is_action_just_pressed("Up"):  	selection -= 1	

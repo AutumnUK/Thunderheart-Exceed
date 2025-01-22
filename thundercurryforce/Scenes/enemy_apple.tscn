@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dhr4jpdyrof0h"]
 
-[ext_resource type="Script" path="res://Scripts/enemy_1.gd" id="1_powse"]
+[ext_resource type="Script" path="res://Scripts/enemy_apple.gd" id="1_powse"]
 [ext_resource type="Texture2D" uid="uid://b6vv2y7a3twqh" path="res://Images/apple.png" id="2_qkikb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pi47w"]
