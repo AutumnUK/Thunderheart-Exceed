@@ -8,6 +8,9 @@ var 	player_x
 var 	player_y
 var 	menu_font
 
+var		sound_volume	: float		= -16.0
+var		music_volume	: float		= -16.0
+
 const	GAME_NAME		: String	= "Thunderheart Exceed"
 const	FONT_MENU		: String	= "res://Misc/Orbitron-Regular.ttf"
 	

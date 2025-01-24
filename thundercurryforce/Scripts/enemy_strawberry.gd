@@ -1,32 +1,22 @@
 extends Area2D
 
-var hp
-var reload
-var vertical_center;  # Center of the screen height
-var bullet 	= preload("res://Scenes/enemy_bullet_1.tscn")
-var exit = 0
+const 	HP 				: int			= 30
+const	RELOAD			: int			= 120
+const 	SPEED 			: int			= 2
+const 	SCORE 			: int			= 10
+const 	amplitude 		: float			= 13.0
+const 	frequency 		: float 		= 0.04 
 
-const HP = 30
-const RELOAD = 120
-const SCORE = 10
+var 	hp				: int			= HP
+var 	reload			: int			= RELOAD
+var 	bullet 			: PackedScene	= preload("res://Scenes/enemy_bullet_1.tscn")
+var 	exit 			: int			= 0
 
 func _ready() -> void:
 	add_to_group("enemies")
-	hp = HP
-	reload = RELOAD
-	
-func _process(delta: float) -> void:
-	reload -= 1;
-	if global_position.x > 300: global_position.x -= 1.5
-	
-	exit += 1;
-	if exit > 240 :
-		global_position.x -= 1.5;
 
-		
-	if global_position.x < -30:
-		queue_free();
-	
+func reload_process() -> void:
+	reload -= 1
 	if reload <= 0:
 		var bullet1 = bullet.instantiate()
 		bullet1.global_position = global_position
@@ -43,9 +33,17 @@ func _process(delta: float) -> void:
 		add_sibling(bullet3)
 		
 		reload += RELOAD;
-		
 
-	
+func movement_process():
+	exit += 1
+	if global_position.x > 300: global_position.x -= SPEED 
+	if exit > 240 : 			global_position.x -= SPEED
+		
+	if global_position.x < -30:	
+		queue_free();
+
+func _process(delta: float) -> void:
+	reload_process()
 	if hp <= 0:
 		queue_free()
 		Global.increaseScore(SCORE)

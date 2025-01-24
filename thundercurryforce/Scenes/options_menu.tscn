@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://usvua5t82i6t"]
+[gd_scene load_steps=8 format=3 uid="uid://usvua5t82i6t"]
 
 [ext_resource type="Script" path="res://Scripts/options_menu.gd" id="1_sh5au"]
 [ext_resource type="Texture2D" uid="uid://cttq6miab6k2x" path="res://Images/Titlebackground.png" id="2_ik35p"]
+[ext_resource type="AudioStream" uid="uid://c33joyskdeesb" path="res://Sounds/laser4.wav" id="4_7ctlc"]
 [ext_resource type="FontFile" uid="uid://duksq34xfyd7j" path="res://Misc/Orbitron-Regular.ttf" id="4_m465k"]
+[ext_resource type="AudioStream" uid="uid://fcn0a3i60ppn" path="res://Music/Juhani Junkala [Retro Game Music Pack] Level 3.wav" id="5_nfpbg"]
 
 [sub_resource type="Gradient" id="Gradient_270wr"]
 offsets = PackedFloat32Array(0, 0.259259, 0.561728, 0.944444)
@@ -109,3 +111,11 @@ visible = false
 offset_right = 320.0
 offset_bottom = 240.0
 color = Color(0, 0, 0, 1)
+
+[node name="ShootingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_7ctlc")
+bus = &"Effects"
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_nfpbg")
+bus = &"Music"

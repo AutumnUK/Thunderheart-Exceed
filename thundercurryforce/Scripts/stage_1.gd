@@ -2,11 +2,11 @@ extends Node2D
 var frame = 0;
 var second = 0;
 
-var Enemy = preload("res://Scenes/enemy_apple.tscn")
-var Enemy2 = preload("res://Scenes/enemy_2.tscn")
-var boss = preload("res://Scenes/boss.tscn")
-var pause_menu_scene = preload("res://Scenes/pause_scene.tscn")
-var Player 	= preload("res://Scenes/player.tscn")
+var Enemy 				= preload("res://Scenes/enemy_apple.tscn")
+var Enemy2 				= preload("res://Scenes/enemy_strawberry.tscn")
+var boss 				= preload("res://Scenes/boss_1.tscn")
+var pause_menu_scene 	= preload("res://Scenes/pause_scene.tscn")
+var Player 				= preload("res://Scenes/player.tscn")
 
 @onready var score = $TextScore
 @onready var timer = $TextTimer
@@ -59,6 +59,11 @@ func _ready() -> void:
 	bosslives = true;
 
 func _process(delta: float) -> void:
+
+	score.text = "SCORE: " 	+ str(Global.global_score)
+	timer.text = "TIME: " 	+ str(second)
+	lives.text = "LIVES: " 	+ str(Global.global_lives)	
+
 	if $Music.playing == false: $Music.play()
 	$"Stage 1 Text".set("position", Vector2(text_stage1_pos,82))
 	$"Stage 1 Text Back".set("position", Vector2(text_stage1_pos + 3, 85))
@@ -142,9 +147,9 @@ func _process(delta: float) -> void:
 	if second == 55 && frame == 0: spawnBoss(360,120); 
 	
 	if second >= 55: raiseBossHealthBar();
-	
-	score.text = "SCORE: " 	+ str(Global.global_score)
-	timer.text = "TIME: " 	+ str(second)
-	lives.text = "LIVES: " 	+ str(Global.global_lives)
-	
+
 	if Global.bosshp == 0:	get_tree().change_scene_to_file("res://Scenes/monsof_logo.tscn")
+
+	
+
+	

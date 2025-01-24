@@ -2,10 +2,8 @@ extends Node2D
 
 var 	selection		: int 			= 1
 var 	sound_bus = AudioServer.get_bus_index("Effects")
-var		sound_volume = 0
-
 var		music_bus = AudioServer.get_bus_index("Music")
-var		music_volume = 0
+
 
 const 	SELECTED_COLOUR : Color 		= Color (1.0,1.0,1.0,1.0)
 const 	DEFAULT_COLOUR	: Color 		= Color (0.3,0.3,0.3,1.0)
@@ -18,12 +16,15 @@ func _create():
 	
 	$"Music Bar".set("min_value", -80.0)
 	$"Music Bar".set("max_value",   0.0)
+	
 
 ## All of the following values need to be saved.
 ## Don't forget to refactor this code.
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("B"): Global.changeScene(MENU)
+	if Input.is_action_just_pressed("B"): 
+		if $Music.playing == true: $Music.stop()
+		Global.changeScene(MENU)
 	
 	defaultColours()
 	match selection :
@@ -33,31 +34,32 @@ func _process(_delta: float) -> void:
 			if Input.is_action_just_pressed("A"):
 				if 		DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN	: DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 				elif 	DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED	: DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+			if $Music.playing == true: $Music.stop()
 		
 		## Add a music clip that plays for reference when adjusting volume.	
 		2 :	# Sound Effect Volume Control
 			textColour($"Sound Volume"	,SELECTED_COLOUR)	
-			if Input.is_action_just_pressed("A"): pass
+			if Input.is_action_just_pressed("Left"):	Global.sound_volume -= 8.0; $ShootingSound.play()
+			if Input.is_action_just_pressed("Right"):	Global.sound_volume += 8.0; $ShootingSound.play()
+			if $Music.playing == true: $Music.stop()	
 
-			if Input.is_action_just_pressed("Left"):	sound_volume -= 8.0
-			if Input.is_action_just_pressed("Right"):	sound_volume += 8.0
-			
-			AudioServer.set_bus_volume_db(sound_bus, sound_volume)
-			$"Sound Bar".set("value",AudioServer.get_bus_volume_db(sound_bus))		
-		
 		## Add a sound that plays when you adjust volume.
 		3 :	# Music Voume
-			textColour($"Music Volume",SELECTED_COLOUR);	
-			if Input.is_action_just_pressed("A"): pass
-
-			if Input.is_action_just_pressed("Left"):	music_volume -= 8.0;
-			if Input.is_action_just_pressed("Right"):	music_volume += 8.0
-
-			AudioServer.set_bus_volume_db(music_bus, music_volume)
-			$"Music Bar".set("value",AudioServer.get_bus_volume_db(music_bus))
-
-		4 :	textColour($"Back"			,SELECTED_COLOUR);	if Input.is_action_just_pressed("A"): Global.changeScene(MENU)
-
+			textColour($"Music Volume",SELECTED_COLOUR)
+			if $Music.playing == false: $Music.play()
+			if Input.is_action_just_pressed("Left"):	Global.music_volume -= 8.0;
+			if Input.is_action_just_pressed("Right"):	Global.music_volume += 8.0
+			
+		4 :	# Exit the menu
+			textColour($"Back"			,SELECTED_COLOUR)
+			if Input.is_action_just_pressed("A"): Global.changeScene(MENU)
+			if $Music.playing == true: $Music.stop()
+			
+	AudioServer.set_bus_volume_db(sound_bus, Global.sound_volume)
+	$"Sound Bar".set("value",AudioServer.get_bus_volume_db(sound_bus))	
+	
+	AudioServer.set_bus_volume_db(music_bus, Global.music_volume)
+	$"Music Bar".set("value",AudioServer.get_bus_volume_db(music_bus))
 	if Input.is_action_just_pressed("Up"):  	selection -= 1	
 	if Input.is_action_just_pressed("Down"):  	selection += 1
 

@@ -1,6 +1,5 @@
 extends Area2D
 
-
 const 	HP			= 60
 const 	RELOAD		= 50
 const 	SCORE		= 10

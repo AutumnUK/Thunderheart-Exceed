@@ -8,12 +8,12 @@ const 	BREATHING_SPEED		: float 	= 0.005
 const	FADE_SPEED			: float		= 0.016
 const	NEXTSCENE			: String	= "res://Scenes/main_menu.tscn"
 const 	SHADOW_COLOR		: Color		= Color( 0 , 0 , 0 , 1 )
-
 func _ready() -> void:
 	create_text_menu("Press Z", 114, 180)
 	for i in 60:
 		await get_tree().create_timer(0.01).timeout
 		$FadeOut.modulate.a -= 0.016
+
 
 func _process(_delta: float) -> void:		
 	$"Press Z".set("theme_override_colors/default_color",Color(breathing,breathing,breathing,press_z_opacity))
