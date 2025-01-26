@@ -1,12 +1,11 @@
 extends Area2D
 
-const 	HP 				: int			= 4
-const 	SPEED 			: int			= 2
+const 	SPEED 			: int			= 4
 const 	SCORE 			: int			= 3
 const 	amplitude 		: float			= 13.0
 const 	frequency 		: float 		= 0.04 
 
-var 	hp				: int			= HP
+var 	hp				: int			= 4
 var 	vertical_center	: int			## Must be defined on _ready()
 
 func _ready() -> void:
@@ -21,7 +20,7 @@ func _process(delta: float) -> void:
 	global_position.x -= SPEED
 	wave_movement()
 	
-	if hp == 0:
+	if hp <= 0:
 		Global.increaseScore(SCORE)
 		queue_free()
 
