@@ -7,8 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://fcn0a3i60ppn" path="res://Music/Juhani Junkala [Retro Game Music Pack] Level 3.wav" id="5_nfpbg"]
 
 [sub_resource type="Gradient" id="Gradient_270wr"]
-offsets = PackedFloat32Array(0, 0.259259, 0.561728, 0.944444)
-colors = PackedColorArray(0, 0.188235, 0, 1, 0.280121, 0.150471, 0.131713, 1, 0.717978, 0.400429, 0.363623, 1, 0.819112, 0.431401, 0.176576, 1)
+offsets = PackedFloat32Array(0, 0.424242, 0.944444)
+colors = PackedColorArray(0.73, 0.4307, 0.630233, 1, 0.716887, 0.578233, 1, 1, 0.551086, 0.623851, 0.913836, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_e0rx7"]
 gradient = SubResource("Gradient_270wr")
@@ -66,7 +66,8 @@ offset_top = 78.0
 offset_right = 320.0
 offset_bottom = 88.0
 min_value = -80.0
-max_value = 0.0
+max_value = 6.0
+value = -80.0
 texture_progress = SubResource("GradientTexture2D_e0rx7")
 
 [node name="Music Bar" type="TextureProgressBar" parent="."]
@@ -75,7 +76,8 @@ offset_top = 156.0
 offset_right = 320.0
 offset_bottom = 166.0
 min_value = -80.0
-max_value = 0.0
+max_value = 6.0
+value = -80.0
 texture_progress = SubResource("GradientTexture2D_e0rx7")
 
 [node name="Music Volume" type="RichTextLabel" parent="."]

@@ -8,7 +8,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:	
 	var direction = Vector2(cos(rotation), sin(rotation))
 	global_position += direction * SPEED * delta
+	if global_position.x > 350: 	queue_free()
 
 func _on_area_entered(area: Area2D) -> void:
-	if area.is_in_group("enemies"):
-		queue_free()
+	if area.is_in_group("enemies"):	queue_free()

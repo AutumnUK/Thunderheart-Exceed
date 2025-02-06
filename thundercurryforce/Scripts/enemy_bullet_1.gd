@@ -23,7 +23,7 @@ func aim_at_player() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	# Adjust speed based on duration
-	
+	if global_position.x <= -10: queue_free()
 	if duration > 8:
 		speed = max(speed - 1, 80)
 

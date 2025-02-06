@@ -1,9 +1,8 @@
 extends Node2D
 
 var 	selection		: int 			= 1
-var 	sound_bus = AudioServer.get_bus_index("Effects")
-var		music_bus = AudioServer.get_bus_index("Music")
-
+var 	sound_bus 		: int			= AudioServer.get_bus_index("Effects")
+var		music_bus 		: int			= AudioServer.get_bus_index("Music")
 
 const 	SELECTED_COLOUR : Color 		= Color (1.0,1.0,1.0,1.0)
 const 	DEFAULT_COLOUR	: Color 		= Color (0.3,0.3,0.3,1.0)
@@ -12,14 +11,10 @@ const	OPTIONS			: String		= "res://Scenes/options_menu.tscn"
 
 func _create():
 	$"Sound Bar".set("min_value", -80.0)
-	$"Sound Bar".set("max_value",   0.0)
+	$"Sound Bar".set("max_value",   6.0)
 	
 	$"Music Bar".set("min_value", -80.0)
-	$"Music Bar".set("max_value",   0.0)
-	
-
-## All of the following values need to be saved.
-## Don't forget to refactor this code.
+	$"Music Bar".set("max_value",   6.0)	
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("B"): 
@@ -66,12 +61,9 @@ func _process(_delta: float) -> void:
 	if selection == 0: selection = 4
 	if selection == 5: selection = 1
 
-### FUNCTIONS -- IGNORE ###
-# Changes the target RichTextLabel's default colour.
-func textColour(target_node : RichTextLabel , target_colour : Color)  -> void:
+func textColour(target_node : RichTextLabel , target_colour : Color)  -> void:	
 	target_node.set("theme_override_colors/default_color",target_colour)
 
-# Sets the default (gray) colours.
 func defaultColours() -> void:
 	textColour($"Fullscreen"	, DEFAULT_COLOUR)
 	textColour($"Sound Volume"	, DEFAULT_COLOUR)

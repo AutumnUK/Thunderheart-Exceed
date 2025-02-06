@@ -18,11 +18,7 @@ const	FONT_MENU		: String	= "res://Misc/Orbitron-Regular.ttf"
 func _ready():
 	menu_font 			= FontFile.new()
 	menu_font.font_data = load(FONT_MENU)
-	global_score 		= 0
-
-	bosshp 				= 100
-	bosshpmax 			= 100
-	
+	global_score 		= 0	
 	displaySettings()
 	
 func displaySettings():
@@ -30,7 +26,7 @@ func displaySettings():
 	DisplayServer.window_set_title(GAME_NAME,0)
 	
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("Reset"): get_tree().change_scene_to_file("res://Scenes/MonsofLogo.tscn")
+	if Input.is_action_just_pressed("Reset"): get_tree().change_scene_to_file("res://Scenes/monsof_logo.tscn")
 	
 func increaseScore(score):	global_score += score;
 func setLives(x):			global_lives = x;

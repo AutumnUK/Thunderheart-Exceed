@@ -11,6 +11,7 @@ var 	hp				: int			= HP
 var 	reload			: int			= RELOAD
 var 	bullet 			: PackedScene	= preload("res://Scenes/enemy_bullet_1.tscn")
 var 	exit 			: int			= 0
+var		hitflash		: int			= 0
 
 func _ready() -> void:
 	add_to_group("enemies")
@@ -36,17 +37,24 @@ func reload_process() -> void:
 
 func movement_process():
 	exit += 1
-	if global_position.x > 300: global_position.x -= SPEED 
+	if global_position.x > 240: global_position.x -= SPEED 
 	if exit > 240 : 			global_position.x -= SPEED
 		
-	if global_position.x < -30:	
-		queue_free();
+	if global_position.x < -30:	queue_free();
 
-func _process(delta: float) -> void:
+	if hitflash  > 1: modulate.a 	= 0.5
+	if hitflash == 0: modulate.a	= 1
+	if hitflash  > 0: hitflash 		-= 1
+	if hitflash  > 20: hitflash = 20
+
+func _process(_delta: float) -> void:
+	movement_process()
 	reload_process()
 	if hp <= 0:
 		queue_free()
 		Global.increaseScore(SCORE)
 
 func _on_area_entered(area: Area2D) -> void:
-	if area.is_in_group("PlayerBullets"): hp -= 1
+	if area.is_in_group("PlayerBullets"): 
+		hp -= 1
+		hitflash += 2

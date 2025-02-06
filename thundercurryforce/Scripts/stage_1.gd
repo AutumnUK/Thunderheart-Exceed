@@ -14,7 +14,7 @@ var Player 				= preload("res://Scenes/player.tscn")
 @onready var BossHP = $BossHP
 var pause_menu
 var time = 0;
-var bosslives;
+var end_delay = 0;
 
 var text_stage1_pos = -100;
 var text_scroll_speed = 0.5;
@@ -53,13 +53,15 @@ func _ready() -> void:
 	Global.setLives(3)
 	spawnPlayer();
 	BossHP.global_position.y += 30;
+	Global.bosshp = 100
+	Global.bosshpmax = 100
 	pause_menu = pause_menu_scene.instantiate()
 	add_child(pause_menu)
 	pause_menu.visible = false
-	bosslives = true;
 
-func _process(delta: float) -> void:
-
+func _process(_delta: float) -> void:
+	if $BossHP.value <= 0: end_delay += 1
+	if end_delay == 100: Global.changeScene("res://Scenes/stage_1_clear.tscn")
 	score.text = "SCORE: " 	+ str(Global.global_score)
 	timer.text = "TIME: " 	+ str(second)
 	lives.text = "LIVES: " 	+ str(Global.global_lives)	
@@ -92,28 +94,24 @@ func _process(delta: float) -> void:
 	$BossHP.set("value",Global.bosshp)
 	frame += 1;
 	if frame >=  60 :	second += 1; 	frame  = 0;
-
 	if second ==  4 && frame ==  0:	spawnEnemy(330, 50)
 	if second ==  4 && frame == 30:	spawnEnemy(330, 50)	
 	if second ==  5 && frame ==  0:	spawnEnemy(330, 50)
 	if second ==  5 && frame == 30:	spawnEnemy(330, 50)	
 	if second ==  6 && frame ==  0:	spawnEnemy(330, 50)		
 	if second ==  6 && frame == 30: spawnEnemy(330, 50)
-	
 	if second ==  8 && frame ==  0:	spawnEnemy(330,190)
 	if second ==  8 && frame == 30:	spawnEnemy(330,190)	
 	if second ==  9 && frame ==  0:	spawnEnemy(330,190)
 	if second ==  9 && frame == 30:	spawnEnemy(330,190)	
 	if second == 10 && frame ==  0:	spawnEnemy(330,190)	
 	if second == 10 && frame == 30: spawnEnemy(330,190)
-	
 	if second == 12 && frame ==  0: spawnEnemy(330,120)
 	if second == 12 && frame == 30: spawnEnemy(330,120)	
 	if second == 13 && frame ==  0:	spawnEnemy(330,120)
 	if second == 13 && frame ==  0:	spawnEnemy(330,120)	
 	if second == 14 && frame ==  0:	spawnEnemy(330,120)
 	if second == 14 && frame ==  0:	spawnEnemy(330,120)	
-	
 	if second == 16 && frame ==  0:	spawnEnemy(330, 50)
 	if second == 16 && frame == 30:	spawnEnemy(330, 70)	
 	if second == 17 && frame ==  0:	spawnEnemy(330, 90)	
@@ -122,33 +120,22 @@ func _process(delta: float) -> void:
 	if second == 18 && frame == 30:	spawnEnemy(330,150)	
 	if second == 19 && frame ==  0:	spawnEnemy(330,170)	
 	if second == 19 && frame == 30:	spawnEnemy(330,190)	
-	
-
-	
-	if second == 22 && frame == 0: spawnEnemy2(360,120);
-	
+	if second == 22 && frame == 0: 	spawnEnemy2(360,120)
 	if second == 28 && frame == 0:	spawnEnemy(330,50)
 	if second == 29 && frame == 0:	spawnEnemy(330,50)	
 	if second == 30 && frame == 0:	spawnEnemy(330,50)
 	if second == 31 && frame == 0:	spawnEnemy(330,50)	
 	if second == 32 && frame == 0:	spawnEnemy(330,50)	
-	
-	if second == 28 && frame == 0: spawnEnemy2(360,50);	
-	
+	if second == 28 && frame == 0: 	spawnEnemy2(360,50);	
 	if second == 35 && frame == 0:	spawnEnemy(330,190)
 	if second == 36 && frame == 0:	spawnEnemy(330,180)	
 	if second == 37 && frame == 0:	spawnEnemy(330,170)
 	if second == 38 && frame == 0:	spawnEnemy(330,160)	
 	if second == 39 && frame == 0:	spawnEnemy(330,150)	
-	
 	if second == 43 && frame == 0: spawnEnemy2(360,50);
 	if second == 43 && frame == 0: spawnEnemy2(360,190);	
-	
-	if second == 55 && frame == 0: spawnBoss(360,120); 
-	
-	if second >= 55: raiseBossHealthBar();
-
-	if Global.bosshp == 0:	get_tree().change_scene_to_file("res://Scenes/monsof_logo.tscn")
+	if second == 50 && frame == 0: spawnBoss(360,120); 
+	if second >= 50: raiseBossHealthBar();
 
 	
 

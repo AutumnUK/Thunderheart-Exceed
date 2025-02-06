@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 func input(delta):	
 	if Input.is_action_pressed("A") && reload == 0:
 		var bullet1 = PlayerBullet.instantiate();	bullet1.global_position = global_position;	add_sibling(bullet1)	
-		var bullet2 = PlayerBullet.instantiate();	bullet2.global_position = global_position;	bullet2.set("rotation", 0.1);	add_sibling(bullet2)		
+		var bullet2 = PlayerBullet.instantiate();	bullet2.global_position = global_position;	bullet2.set("rotation",  0.1);	add_sibling(bullet2)		
 		var bullet3 = PlayerBullet.instantiate();	bullet3.global_position = global_position;	bullet3.set("rotation", -0.1);	add_sibling(bullet3)
 		$ShootingSound.play()
 		reload += 14

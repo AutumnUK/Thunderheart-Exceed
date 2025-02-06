@@ -1,19 +1,67 @@
-[gd_scene load_steps=2 format=3 uid="uid://ciddp762gyh7m"]
+[gd_scene load_steps=3 format=3 uid="uid://ciddp762gyh7m"]
 
 [ext_resource type="Script" path="res://Scripts/pause_scene.gd" id="1_yevfo"]
+[ext_resource type="FontFile" uid="uid://duksq34xfyd7j" path="res://Misc/Orbitron-Regular.ttf" id="2_03yq5"]
 
 [node name="PauseScene" type="Node2D"]
 process_mode = 2
+top_level = true
 script = ExtResource("1_yevfo")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 319.0
+z_index = 20
+offset_right = 320.0
 offset_bottom = 239.0
 color = Color(0, 0, 0, 0.694118)
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 116.0
-offset_top = 52.0
-offset_right = 469.0
-offset_bottom = 140.0
+[node name="Paused" type="RichTextLabel" parent="."]
+z_index = 25
+offset_left = 8.0
+offset_top = 9.0
+offset_right = 328.0
+offset_bottom = 97.0
+theme_override_fonts/normal_font = ExtResource("2_03yq5")
+theme_override_font_sizes/normal_font_size = 36
 text = "PAUSED"
+
+[node name="Resume" type="RichTextLabel" parent="."]
+z_index = 25
+offset_left = 9.0
+offset_top = 60.0
+offset_right = 329.0
+offset_bottom = 85.0
+theme_override_fonts/normal_font = ExtResource("2_03yq5")
+theme_override_font_sizes/normal_font_size = 14
+text = "RESUME"
+
+[node name="Quit" type="RichTextLabel" parent="."]
+z_index = 25
+offset_left = 9.0
+offset_top = 78.0
+offset_right = 329.0
+offset_bottom = 118.0
+theme_override_fonts/normal_font = ExtResource("2_03yq5")
+theme_override_font_sizes/normal_font_size = 14
+text = "QUIT"
+
+[node name="Yes" type="RichTextLabel" parent="."]
+visible = false
+z_index = 25
+offset_left = 9.0
+offset_top = 60.0
+offset_right = 329.0
+offset_bottom = 85.0
+theme_override_fonts/normal_font = ExtResource("2_03yq5")
+theme_override_font_sizes/normal_font_size = 14
+text = "YES"
+
+[node name="No" type="RichTextLabel" parent="."]
+visible = false
+z_index = 25
+offset_left = 9.0
+offset_top = 78.0
+offset_right = 329.0
+offset_bottom = 118.0
+theme_override_fonts/normal_font = ExtResource("2_03yq5")
+theme_override_font_sizes/normal_font_size = 14
+text = "No"
