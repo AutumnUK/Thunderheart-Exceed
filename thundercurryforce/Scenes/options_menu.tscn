@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://usvua5t82i6t"]
 
-[ext_resource type="Script" path="res://Scripts/options_menu.gd" id="1_sh5au"]
+[ext_resource type="Script" uid="uid://4qa5ltab4l83" path="res://Scripts/options_menu.gd" id="1_sh5au"]
 [ext_resource type="Texture2D" uid="uid://cttq6miab6k2x" path="res://Images/Titlebackground.png" id="2_ik35p"]
 [ext_resource type="AudioStream" uid="uid://c33joyskdeesb" path="res://Sounds/laser4.wav" id="4_7ctlc"]
 [ext_resource type="FontFile" uid="uid://duksq34xfyd7j" path="res://Misc/Orbitron-Regular.ttf" id="4_m465k"]

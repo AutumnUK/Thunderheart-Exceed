@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://di55i1eqag4cc"]
 
 [ext_resource type="Texture2D" uid="uid://g1vd0noqvd" path="res://Images/monsof.png" id="1_8y6ol"]
-[ext_resource type="Script" path="res://Scripts/monsof_logo.gd" id="1_gntil"]
+[ext_resource type="Script" uid="uid://dpiwje2ssbh6y" path="res://Scripts/monsof_logo.gd" id="1_gntil"]
 
 [node name="monsofLogo" type="Node2D"]
 script = ExtResource("1_gntil")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://jpuk62bx6fdl"]
 
-[ext_resource type="Script" path="res://Scripts/stage_1_clear.gd" id="1_kb7po"]
+[ext_resource type="Script" uid="uid://7qdtq5y64g62" path="res://Scripts/stage_1_clear.gd" id="1_kb7po"]
 [ext_resource type="Texture2D" uid="uid://dl1muueml6loq" path="res://Images/background_layer_3.png" id="2_5fj3n"]
 [ext_resource type="FontFile" uid="uid://duksq34xfyd7j" path="res://Misc/Orbitron-Regular.ttf" id="3_l6mow"]
 

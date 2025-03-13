@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://d3kuyk7h6a82t"]
 
-[ext_resource type="Script" path="res://Scripts/enemy_cherry.gd" id="1_r46uh"]
+[ext_resource type="Script" uid="uid://51rld30sknfv" path="res://Scripts/enemy_cherry.gd" id="1_r46uh"]
 [ext_resource type="Texture2D" uid="uid://b6vv2y7a3twqh" path="res://Images/apple.png" id="1_y73qq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_30og6"]

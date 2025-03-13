@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ciddp762gyh7m"]
 
-[ext_resource type="Script" path="res://Scripts/pause_scene.gd" id="1_yevfo"]
+[ext_resource type="Script" uid="uid://db5llu2pukb8r" path="res://Scripts/pause_scene.gd" id="1_yevfo"]
 [ext_resource type="FontFile" uid="uid://duksq34xfyd7j" path="res://Misc/Orbitron-Regular.ttf" id="2_03yq5"]
 
 [node name="PauseScene" type="Node2D"]
