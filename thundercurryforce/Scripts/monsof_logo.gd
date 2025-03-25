@@ -7,10 +7,10 @@ var 	col			: float 	= 1.0
 var 	fade		: float 	= 1.0
 var		frame		: int		= 0
 
-func _process(_delta):
-	frame += 1;
+func _process(_delta) -> void:
+	frame += 1
 	$FadeRect.set("color",Color(col,col,col,1))								# Set the background colour.
-	$monsof_logo_sprite.modulate.a = fade;									# Set the logo opacity.
+	$monsof_logo_sprite.modulate.a 			= fade							# Set the logo opacity.
 	
 	if 	 frame  > 120 && frame < 180: col  -= FADETIME						# Darken background.
 	elif frame  > 240 && frame < 340: fade -= FADETIME  					# Fade logo.
