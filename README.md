@@ -1,2 +1,3 @@
-# TM470
- This is the github page for my Open University TM470 project.
+# Thunderheart Exceed
+Thunderheart Exceed is a small demo for a scrolling shooter.
+This github repository exists to demonstrate the work done on this project.
