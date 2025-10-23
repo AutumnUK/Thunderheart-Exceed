@@ -1,5 +1,0 @@
-options_menu
-- fix the volume reset bug (have a global sound value that it loads when you go to the options screen)
-- add a resolution adjuster
-- add a sound that plays when adjusting sound effect voume
-- add a music track that plays during music volume adjustment

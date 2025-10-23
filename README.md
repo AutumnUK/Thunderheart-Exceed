@@ -1,3 +1,3 @@
-# Thunderheart Exceed
-Thunderheart Exceed is a small demo for a scrolling shooter.
-This github repository exists to demonstrate the work done on this project.
+# Benjamin MacKnight - TM470
+This repository documents the process and result of my work on my final Open University project.
+
